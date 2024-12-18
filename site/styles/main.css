@@ -1,0 +1,157 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #ffffff;
+    height: 100vh;
+    background-image: linear-gradient(120deg, #0011ff, #ae00ff);
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+}
+
+fieldset {
+    margin: 12px 8px;
+    margin-top: 0;
+    border-radius: 16px;
+} fieldset legend {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+/* chart */
+#chart-info {
+    margin: 0 8px;
+    position: relative;
+}
+
+#chart-infogroup {
+    font-weight: bold;
+}
+
+#chart-top {
+    font-size: 2em;
+}
+
+#chart-type {
+    position: relative;
+    font-size: 1.2em;
+    top: -10px;
+}
+
+#chart-logo {
+    position: absolute;
+    width: 3.4em;
+    right: 8px;
+    top: 8px;
+    border-radius: 100%;
+}
+
+#chart-period {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.2em;
+}
+
+tr {
+    color: black;
+    height: 60px;
+    max-height: 60px;
+
+} tr:nth-child(odd) {
+    background-color: #ffffff;
+} tr:nth-child(even) {
+    background-color: #e2e2e2;
+}
+
+td {
+    justify-self: center;
+    font-size: 1em;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 30vw;
+} td:nth-child(odd) {
+    text-align: center;
+    width: 50px;
+    border-right: 1px solid black;
+} td:nth-child(even) {
+    padding-left: 12px;
+}
+
+#chart-time {
+    display: block;
+    text-align: center;
+}
+
+.subInfo p {
+    margin: 0;
+    margin-top: -2px;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+.darkMode #chart-infogroup, .darkMode #chart-time, .darkMode #chart-period {
+    color: black;
+}
+
+.darkMode td {
+    color: white;
+} .darkMode td:nth-child(odd) {
+    border-right: 1px solid #ffffff;
+}
+
+.darkMode tr:nth-child(odd) {
+    background-color: #000000;
+} .darkMode tr:nth-child(even) {
+    background-color: #1D1D1D;
+}
+
+/* settings */
+#controls {
+    flex: 1;
+    margin: 0;
+    background-color: #242424;
+}
+
+input {
+    padding: 4px;
+    border-radius: 10px;
+}
+
+#title {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    margin: 4px 0px;
+    padding: 4px 8px;
+    font-size: 1.05em;
+    border-radius: 8px;
+}
+
+label, input, button, #chart-type {
+    cursor: pointer;
+}
+
+#userControl {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    body{
+        flex-direction: row;
+    }
+
+    #chart-info {
+        width: 35%;
+    }
+}
