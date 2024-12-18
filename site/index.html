@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoolCharts</title>
+
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/main.js" defer></script>
+</head>
+<body>
+    <div id="chart-info" hidden>
+        <div id="chart-infogroup">
+            <span id="chart-top">TOP 10</span><br>
+            <span id="chart-type" onclick="quickChangeType()"></span>
+        </div>
+        <img id="chart-logo" src="" alt="Profile picture" hidden>
+        <div id="chart">
+            <span id="chart-period"></span>
+            <table id="artists-chart" hidden></table>
+            <table id="albums-chart" class="subInfo" hidden></table>
+            <table id="songs-chart" class="subInfo" hidden></table>
+            <span id="chart-time"></span>
+        </div>
+    </div>
+    <div id="controls">
+        <!-- mudar periodo (e esquerda e direita) -->
+        <fieldset disabled>
+            <legend>Configurações</legend>
+
+            <p id="title">Tipo de chart</p>
+            <label for="tipo_artistas">Artistas</label><input onclick="changeType('Artistas')" type="radio" name="tipo_radio" id="tipo_artistas" checked><br>
+            <label for="tipo_albuns">Álbuns</label><input onclick="changeType('Albuns')" type="radio" name="tipo_radio" id="tipo_albuns"><br>
+            <label for="tipo_musicas">Músicas</label><input onclick="changeType('Musicas')" type="radio" name="tipo_radio" id="tipo_musicas"><br><br>
+
+            <p id="title">Periodo</p>
+            <label for="periodo_semanal">Semanal</label><input onclick="changePeriodInput('Semanal')" type="radio" name="periodo_radio" id="periodo_semanal" checked><br>
+            <label for="periodo_mensal">Mensal</label><input onclick="changePeriodInput('Mensal')" type="radio" name="periodo_radio" id="periodo_mensal"><br>
+            <label for="periodo_anual">Anual</label><input onclick="changePeriodInput('Anual')" type="radio" name="periodo_radio" id="periodo_anual"><br><br>
+
+            <div id="year-input-div" hidden>
+                <select id="year-select"></select><br>
+                <button onclick="updateCharts('Anual')">Atualizar</button>
+            </div>
+
+            <div id="month-input-div" hidden>
+                <input type="month" id="month-input"><br>
+                <button onclick="updateCharts('Mensal')">Atualizar</button>
+            </div>
+
+            <div id="week-input-div" hidden>
+                <input type="week" id="week-input"><br>
+                <button onclick="updateCharts('Semanal')">Atualizar</button>
+            </div>
+        </fieldset>
+
+        <fieldset disabled>
+            <legend>Personalização</legend>
+            <button onclick="toggleLogo()">Mostrar foto</button><br>
+            <button onclick="darkMode()">Modo escuro</button>
+
+            <br><br><p id="title">Cores de fundo</p>
+            <label for="gradientColor1">1ª cor: </label><input type="text" id="gradientColor1" placeholder="#0011ff" required><br>
+            <label for="gradientColor2">2ª cor: </label><input type="text" id="gradientColor2" placeholder="#ae00ff"><br>
+            <label for="gradientAngle">Ângulo: </label><input type="number" id="gradientAngle" placeholder="120"><br>
+            <button onclick="changeGradient()">Mudar fundo</button>
+        </fieldset>
+        <div id="userControl">
+            <input type="text" id="user" placeholder="lastfm user"><br>
+            <button onclick="getuser()">Entrar</button><br>
+        </div>
+    </div>
+</body>
+</html>
