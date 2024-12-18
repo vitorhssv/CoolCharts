@@ -105,7 +105,7 @@ async function getuser() {
         let accCreation;
         let weekInput = document.getElementById("week-input");
         let monthInput = document.getElementById("month-input");
-        const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${user}&api_key=${API}&format=json`);
+        const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${user}&api_key=${API}&format=json`);
         const data = await response.json();
         accCreation = new Date(data.user.registered.unixtime * 1000)
         document.getElementById("chart-info").hidden = false;
@@ -157,7 +157,7 @@ async function printCharts(from, to) {
     let getChart = ["getweeklyartistchart", "getweeklyalbumchart", "getweeklytrackchart", "artists-chart", "albums-chart", "songs-chart"];
     try {
         for (let x = 0; x < 3; x++) {
-            const response = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.${getChart[x]}&user=${user}&from=${from}&to=${to}&limit=10&api_key=${API}&format=json`);
+            const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.${getChart[x]}&user=${user}&from=${from}&to=${to}&limit=10&api_key=${API}&format=json`);
             const data = await response.json();
 
             // build chart
